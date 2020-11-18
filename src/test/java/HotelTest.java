@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class HotelTest {
     private Hotel hotel;
@@ -32,9 +32,21 @@ public class HotelTest {
         assertEquals(1, hotel.getConferenceCount());
     }
     @Test
+    public void canCheckRoom_Occupied(){
+        hotel.addBedroom(bedroom);
+        bedroom.addGuest(guest);
+        assertTrue(hotel.checkRoomOccupied(bedroom));
+    }
+    @Test
+    public void canCheckRoom_Unoccupied(){
+        hotel.addBedroom(bedroom);
+        assertEquals(false, hotel.checkRoomOccupied(bedroom));
+    }
+    @Test
     public void canCheckGuestInToBedroom(){
+        hotel.addBedroom(bedroom);
         hotel.checkInGuest(guest, bedroom);
-        assertEquals(true, hotel.checkRoomOccupied());
+        assertEquals(true, hotel.checkRoomOccupied(bedroom));
     }
 
 }
