@@ -36,4 +36,7 @@ public class Bedroom {
     public void addGuest(Guest guest){
         this.occupants.add(guest);
     }
+    public void empty(){
+        this.occupants.clear();
+    }
 }

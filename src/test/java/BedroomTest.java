@@ -50,7 +50,8 @@ public class BedroomTest {
     }
     @Test
     public void canEmptyRoom(){
+        bedroom.addGuest(guest);
         bedroom.empty();
-        assertEquals(0, bedroom.getCapacity());
+        assertEquals(0, bedroom.getNumOccupants());
     }
 }
