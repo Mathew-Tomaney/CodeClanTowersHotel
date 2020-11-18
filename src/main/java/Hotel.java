@@ -32,4 +32,14 @@ public class Hotel {
         bedrooms.get(bedrooms.indexOf(bedroom)).empty();
     }
 
+    public ArrayList<Bedroom> getAvailableRooms(){
+        ArrayList<Bedroom> results = new ArrayList<Bedroom>();
+        for (Bedroom bedroom : bedrooms) {
+            if (bedroom.getNumOccupants() == 0){
+                results.add(bedroom);
+            }
+        }
+        return results;
+    }
+
 }
