@@ -69,4 +69,5 @@ public class HotelTest {
         assertEquals(1, availableRooms.size());
     }
 
+
 }
