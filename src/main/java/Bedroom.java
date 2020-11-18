@@ -21,4 +21,13 @@ public class Bedroom {
     public String getType(){
         return this.type;
     }
+    public void setNumber(int newData){
+        this.roomNumber = newData;
+    }
+    public void setCapacity(int newData){
+        this.capacity = newData;
+    }
+    public void setType(String newData){
+        this.type = newData;
+    }
 }

@@ -34,5 +34,6 @@ public class BedroomTest {
     @Test
     public void canChangeType(){
         bedroom.setType("Twin");
+        assertEquals("Twin", bedroom.getType());
     }
 }
