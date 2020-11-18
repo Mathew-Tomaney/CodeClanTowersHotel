@@ -5,10 +5,12 @@ import static org.junit.Assert.assertEquals;
 
 public class ConferenceRoomTest {
     private ConferenceRoom conferenceRoom;
+    private Guest guest;
 
     @Before
     public void before(){
         conferenceRoom = new ConferenceRoom("Fishbowl", 10);
+        guest = new Guest("Alan Johnson");
     }
     @Test
     public void hasName(){
@@ -29,6 +31,12 @@ public class ConferenceRoomTest {
     }
     @Test
     public void canChangeCapacity(){
+        conferenceRoom.setCapacity(12);
         assertEquals(12, conferenceRoom.getCapacity());
+    }
+    @Test
+    public void canAddGuest(){
+        conferenceRoom.addGuest(guest);
+        assertEquals(1, conferenceRoom.getOccupants());
     }
 }
