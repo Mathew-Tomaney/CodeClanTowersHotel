@@ -32,21 +32,39 @@ public class HotelTest {
         assertEquals(1, hotel.getConferenceCount());
     }
     @Test
-    public void canCheckRoom_Occupied(){
+    public void canCheckRoomBelowCapacity(){
         hotel.addBedroom(bedroom);
         bedroom.addGuest(guest);
-        assertTrue(hotel.checkRoomOccupied(bedroom));
+        assertTrue(hotel.checkRoomBelowCapacity(bedroom));
     }
     @Test
-    public void canCheckRoom_Unoccupied(){
+    public void canCheckRoomAtCapacity(){
         hotel.addBedroom(bedroom);
-        assertEquals(false, hotel.checkRoomOccupied(bedroom));
+        bedroom.addGuest(guest);
+        bedroom.addGuest(guest);
+        bedroom.addGuest(guest);
+        assertEquals(false, hotel.checkRoomBelowCapacity(bedroom));
     }
     @Test
     public void canCheckGuestInToBedroom(){
         hotel.addBedroom(bedroom);
         hotel.checkInGuest(guest, bedroom);
-        assertEquals(true, hotel.checkRoomOccupied(bedroom));
+        assertEquals(true, hotel.checkRoomBelowCapacity(bedroom));
+    }
+    @Test
+    public void canCheckGuestOutOfBedroom(){
+        hotel.addBedroom(bedroom);
+        hotel.checkInGuest(guest, bedroom);
+        hotel.checkOutRoom(bedroom);
+        assertEquals(0, bedroom.getNumOccupants());
+    }
+    @Test
+    public void canGetAvailableRooms(){
+        hotel.addBedroom(bedroom);
+        hotel.addBedroom(testBedroom);
+        hotel.checkInGuest(guest, bedroom);
+        availableRooms = hotel.getAvailableRooms();
+        assertEquals(1, availableRooms.size());
     }
 
 }

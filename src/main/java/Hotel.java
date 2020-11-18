@@ -20,17 +20,16 @@ public class Hotel {
     public void addConference(ConferenceRoom conferenceRoom){
         this.conferenceRooms.add(conferenceRoom);
     }
-    public boolean checkRoomOccupied(Bedroom bedroom){
-        if(bedroom.getNumOccupants() > 0){
-            return true;
-        }else{
-            return false;
-        }
+    public boolean checkRoomBelowCapacity(Bedroom bedroom){
+        return bedroom.getNumOccupants() < bedroom.getCapacity();
     }
     public void checkInGuest(Guest guest, Bedroom bedroom){
-        if(!this.checkRoomOccupied(bedroom)) {
+        if(this.checkRoomBelowCapacity(bedroom)) {
             bedrooms.get(bedrooms.indexOf(bedroom)).addGuest(guest);
         }
+    }
+    public void checkOutRoom(Bedroom bedroom){
+        bedrooms.get(bedrooms.indexOf(bedroom)).empty();
     }
 
 }
