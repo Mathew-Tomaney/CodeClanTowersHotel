@@ -5,9 +5,11 @@ import static org.junit.Assert.assertEquals;
 
 public class BedroomTest {
     private Bedroom bedroom;
+    private Guest guest;
     @Before
     public void before(){
         bedroom = new Bedroom(1, 2, "Double");
+        guest = new Guest("Graham Grahamson");
     }
     @Test
     public void roomHasNumber(){
@@ -35,5 +37,11 @@ public class BedroomTest {
     public void canChangeType(){
         bedroom.setType("Twin");
         assertEquals("Twin", bedroom.getType());
+    }
+
+    @Test
+    public void canAddGuest(){
+        bedroom.addGuest(guest);
+        assertEquals(1, bedroom.getNumOccupants);
     }
 }
