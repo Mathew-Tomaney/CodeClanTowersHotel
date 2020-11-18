@@ -22,7 +22,7 @@ public class ConferenceRoomTest {
     }
     @Test
     public void startsEmpty(){
-        assertEquals(0, conferenceRoom.getOccupants());
+        assertEquals(0, conferenceRoom.getNumOccupants());
     }
     @Test
     public void canChangeName(){
@@ -37,6 +37,18 @@ public class ConferenceRoomTest {
     @Test
     public void canAddGuest(){
         conferenceRoom.addGuest(guest);
-        assertEquals(1, conferenceRoom.getOccupants());
+        assertEquals(1, conferenceRoom.getNumOccupants());
+    }
+    @Test
+    public void canRemoveGuest(){
+        conferenceRoom.addGuest(guest);
+        conferenceRoom.removeGuest(guest);
+        assertEquals(0, conferenceRoom.getNumOccupants());
+    }
+    @Test
+    public void canEmptyRoom(){
+        conferenceRoom.addGuest(guest);
+        conferenceRoom.empty();
+        assertEquals(0, conferenceRoom.getNumOccupants());
     }
 }

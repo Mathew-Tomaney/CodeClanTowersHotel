@@ -11,7 +11,7 @@ public class ConferenceRoom {
         this.occupants = new ArrayList<Guest>();
     }
 
-    public int getOccupants() {
+    public int getNumOccupants() {
         return occupants.size();
     }
     public int getCapacity() {
@@ -25,6 +25,9 @@ public class ConferenceRoom {
     }
     public void setCapacity(int newCapacity){
         this.capacity = newCapacity;
+    }
+    public void addGuest(Guest newGuest){
+        this.occupants.add(newGuest);
     }
 
 }
