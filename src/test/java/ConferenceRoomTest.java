@@ -1,0 +1,34 @@
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class ConferenceRoomTest {
+    private ConferenceRoom conferenceRoom;
+
+    @Before
+    public void before(){
+        conferenceRoom = new ConferenceRoom("Fishbowl", 10);
+    }
+    @Test
+    public void hasName(){
+        assertEquals("Fishbowl", conferenceRoom.getName());
+    }
+    @Test
+    public void hasCapacity(){
+        assertEquals(10, conferenceRoom.getCapacity());
+    }
+    @Test
+    public void startsEmpty(){
+        assertEquals(0, conferenceRoom.getOccupants());
+    }
+    @Test
+    public void canChangeName(){
+        conferenceRoom.setName("Johnson");
+        assertEquals("Johnson", conferenceRoom.getName());
+    }
+    @Test
+    public void canChangeCapacity(){
+        assertEquals(12, conferenceRoom.getCapacity());
+    }
+}
