@@ -38,10 +38,19 @@ public class BedroomTest {
         bedroom.setType("Twin");
         assertEquals("Twin", bedroom.getType());
     }
+    @Test
+    public void roomStartsEmpty(){
+        assertEquals(0, bedroom.getNumOccupants());
+    }
 
     @Test
     public void canAddGuest(){
         bedroom.addGuest(guest);
-        assertEquals(1, bedroom.getNumOccupants);
+        assertEquals(1, bedroom.getNumOccupants());
+    }
+    @Test
+    public void canEmptyRoom(){
+        bedroom.empty();
+        assertEquals(0, bedroom.getCapacity());
     }
 }

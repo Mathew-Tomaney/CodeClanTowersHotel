@@ -30,4 +30,10 @@ public class Bedroom {
     public void setType(String newData){
         this.type = newData;
     }
+    public int getNumOccupants(){
+        return this.occupants.size();
+    }
+    public void addGuest(Guest guest){
+        this.occupants.add(guest);
+    }
 }
