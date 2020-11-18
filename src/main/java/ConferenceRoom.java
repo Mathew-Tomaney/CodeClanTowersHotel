@@ -29,5 +29,10 @@ public class ConferenceRoom {
     public void addGuest(Guest newGuest){
         this.occupants.add(newGuest);
     }
-
+    public void empty(){
+        this.occupants.clear();
+    }
+    public void removeGuest(Guest guest){
+        this.occupants.remove(guest);
+    }
 }
